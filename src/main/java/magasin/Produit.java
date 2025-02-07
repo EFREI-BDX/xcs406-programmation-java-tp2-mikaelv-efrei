@@ -29,9 +29,9 @@ public class Produit {
         return quantite;
     }
 
-    protected void setPrix(double prix) {
-        this.prix = prix;
-    }
+    // protected void setPrix(double prix) {
+    //     this.prix = prix;
+    // }
 
     protected void setQuantite(int quantite) {
         this.quantite = quantite;
@@ -39,8 +39,8 @@ public class Produit {
 
 
 
-    public void afficherDetails() {
-        System.out.println("ID: " + id + ", Nom: " + nom + ", Prix: " + prix + ", Quantité: " + quantite);
-    }
+    // public void afficherDetails() {
+    //     System.out.println("ID: " + id + ", Nom: " + nom + ", Prix: " + prix + ", Quantité: " + quantite);
+    // }
 
 }
