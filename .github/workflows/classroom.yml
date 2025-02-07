@@ -24,7 +24,7 @@ jobs:
         run: chmod +x ./gradlew
           
       - name: Build and Generate autograding.json
-        run: ./gradlew generateAutogradingJson
+        run: mkdir -p .github/classroom && ./gradlew generateAutogradingJson
 
       - name: Check autograding.json
         run: ls -la .github/classroom/
