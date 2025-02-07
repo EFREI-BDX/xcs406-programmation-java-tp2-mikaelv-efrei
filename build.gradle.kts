@@ -39,6 +39,6 @@ tasks.test {
 tasks.register<JavaExec>("generateAutogradingJson") {
     group = "build"
     description = "Generates autograding.json"
-    classpath = sourceSets["main"].runtimeClasspath
-    mainClass.set("AutogradingJsonGenerator") // Ensure this matches your package structure
+    classpath = sourceSets["test"].runtimeClasspath
+    mainClass.set("com.efrei.autograder.AutogradingJsonGenerator") // Ensure this matches your package structure
 }

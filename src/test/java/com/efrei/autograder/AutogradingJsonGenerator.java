@@ -1,9 +1,13 @@
+package com.efrei.autograder;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+
+import magasin.ProduitTest;
 
 public class AutogradingJsonGenerator {
 
@@ -45,14 +49,14 @@ public class AutogradingJsonGenerator {
                     .append(methodName)
                     .append("\",\n")
                     .append("      \"setup\": \"\",\n")
-                    .append("      \"run\": \"./gradlew test --tests \\\"magasin.ProduitTest.")
+                    .append("      \"run\": \"./gradlew test --tests magasin.ProduitTest.")
                     .append(methodName)
-                    .append("\\\"\n")
+                    .append("\",\n")
                     .append("      \"input\": \"\",\n")
-                    .append("      \"output\": \"Success rate: 100%\",\n")
-                    .append("      \"comparison\": \"regex\",\n")
+                    .append("      \"output\": \"tests completed\",\n")
+                    .append("      \"comparison\": \"included\",\n")
                     .append("      \"timeout\": 10,\n")
-                    .append("      \"points\": 20\n")
+                    .append("      \"points\": 1\n")
                     .append("    }");
 
             if (i < testMethods.size() - 1) {
