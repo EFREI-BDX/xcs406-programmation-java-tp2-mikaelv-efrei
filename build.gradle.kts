@@ -2,9 +2,6 @@ plugins {
     java
 }
 
-group = "com.efrei.xcs406"
-version = "1.0-SNAPSHOT"
-
 repositories {
     mavenCentral()
 }
@@ -20,7 +17,7 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
-    ignoreFailures = true  // Continue même si des tests échouent
+    ignoreFailures = true
     testLogging {
         events("passed", "skipped", "failed")
         showStandardStreams = true
@@ -37,4 +34,10 @@ tasks.test {
             }
         }))
     }
+
+tasks.register<JavaExec>("generateAutogradingJson") {
+    group = "build"
+    description = "Generates autograding.json"
+    classpath = sourceSets["main"].runtimeClasspath
+    mainClass.set("AutogradingJsonGenerator") // Ensure this matches your package structure
 }
