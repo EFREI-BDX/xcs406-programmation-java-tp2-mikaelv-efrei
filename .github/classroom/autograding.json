@@ -5,8 +5,8 @@
       "setup": "",
       "run": "./gradlew test",
       "input": "",
-      "output": "tests completed",
-      "comparison": "included",
+      "output": "tests completed successfully",
+      "comparison": "regex",
       "timeout": 10,
       "points": 100
     }
