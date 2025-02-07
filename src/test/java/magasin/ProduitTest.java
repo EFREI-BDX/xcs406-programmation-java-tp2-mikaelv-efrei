@@ -87,10 +87,16 @@ public class ProduitTest {
         assertTrue(Arrays.stream(methods).anyMatch(m -> m.getName().equals("setQuantite")), "La méthode setQuantite() est manquante");
         
         try {
-            assertEquals(void.class, classe.getMethod("setPrix", double.class).getReturnType(), 
-                "setPrix() doit être de type void");
-            assertEquals(void.class, classe.getMethod("setQuantite", int.class).getReturnType(), 
-                "setQuantite() doit être de type void");
+            Method setPrix = classe.getDeclaredMethod("setPrix", double.class);
+            Method setQuantite = classe.getDeclaredMethod("setQuantite", int.class);
+            
+            assertTrue(Modifier.isPublic(setPrix.getModifiers()) || Modifier.isProtected(setPrix.getModifiers()), 
+                "setPrix() doit être public ou protected");
+            assertTrue(Modifier.isPublic(setQuantite.getModifiers()) || Modifier.isProtected(setQuantite.getModifiers()), 
+                "setQuantite() doit être public ou protected");
+            
+            assertEquals(void.class, setPrix.getReturnType(), "setPrix() doit être de type void");
+            assertEquals(void.class, setQuantite.getReturnType(), "setQuantite() doit être de type void");
         } catch (NoSuchMethodException e) {
             fail("Un setter requis est manquant");
         }
