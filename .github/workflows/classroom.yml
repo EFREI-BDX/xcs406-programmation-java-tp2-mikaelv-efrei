@@ -25,6 +25,9 @@ jobs:
           
       - name: Build and Generate autograding.json
         run: ./gradlew generateAutogradingJson
+
+      - name: Check autograding.json
+        run: ls -la .github/classroom/
         
       - name: Autograding
         uses: education/autograding@v1
