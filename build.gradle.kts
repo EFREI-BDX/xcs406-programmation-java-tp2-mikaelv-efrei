@@ -34,7 +34,6 @@ tasks.test {
                 println("Failed tests: ${result.failedTestCount}")
                 println("Skipped tests: ${result.skippedTestCount}")
                 println("Success rate: ${(passed.toDouble() / total * 100).toInt()}%")
-                println("$passed/$total tests completed successfully")
             }
         }))
     }

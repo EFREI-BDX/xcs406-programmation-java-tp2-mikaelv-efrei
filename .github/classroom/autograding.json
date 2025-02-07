@@ -5,7 +5,7 @@
       "setup": "",
       "run": "./gradlew test",
       "input": "",
-      "output": "tests completed successfully",
+      "output": "Success rate: \\d+%",
       "comparison": "regex",
       "timeout": 10,
       "points": 100
