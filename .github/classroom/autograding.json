@@ -1,0 +1,54 @@
+{
+  "tests": [
+    {
+      "name": "Test structure de la classe Produit",
+      "setup": "",
+      "run": "./gradlew test --tests \"magasin.ProduitTest.testAttributsExistent\" --tests \"magasin.ProduitTest.testAttributsPrives\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    },
+    {
+      "name": "Test constructeur",
+      "setup": "",
+      "run": "./gradlew test --tests \"magasin.ProduitTest.testConstructeurExiste\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Test getters",
+      "setup": "",
+      "run": "./gradlew test --tests \"magasin.ProduitTest.testGettersExistent\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Test setters",
+      "setup": "",
+      "run": "./gradlew test --tests \"magasin.ProduitTest.testSettersExistent\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 2
+    },
+    {
+      "name": "Test méthode afficherDetails",
+      "setup": "",
+      "run": "./gradlew test --tests \"magasin.ProduitTest.testMethodeAfficherDetailsExiste\"",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 1
+    }
+  ]
+} 
