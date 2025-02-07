@@ -27,4 +27,4 @@ jobs:
         run: chmod +x ./gradlew
         
       - name: Autograding
-        uses: education/autograding@v2
+        uses: education/autograding@v1
