@@ -21,18 +21,6 @@ tasks.test {
     testLogging {
         events("passed", "skipped", "failed")
         showStandardStreams = true
-        afterSuite(KotlinClosure2({ desc: TestDescriptor, result: TestResult ->
-            if (desc.parent == null) {
-                val total = result.testCount
-                val passed = result.successfulTestCount
-                println("\nTest Summary:")
-                println("Total tests: $total")
-                println("Passed tests: $passed")
-                println("Failed tests: ${result.failedTestCount}")
-                println("Skipped tests: ${result.skippedTestCount}")
-                println("Success rate: ${(passed.toDouble() / total * 100).toInt()}%")
-            }
-        }))
     }
 }
 
