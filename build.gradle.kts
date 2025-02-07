@@ -34,6 +34,7 @@ tasks.test {
             }
         }))
     }
+}
 
 tasks.register<JavaExec>("generateAutogradingJson") {
     group = "build"
