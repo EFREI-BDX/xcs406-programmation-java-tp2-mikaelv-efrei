@@ -1,33 +1,30 @@
-name: GitHub Classroom Workflow
-
-on: [push]
-
+name: Autograding Tests
+'on':
+- push
+- repository_dispatch
 permissions:
   checks: write
   actions: read
   contents: read
-
 jobs:
-  build:
-    name: Autograding
+  run-autograding-tests:
     runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Set up JDK 21
-        uses: actions/setup-java@v3
-        with:
-          java-version: '21'
-          distribution: 'temurin'
-
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
-          
-      - name: Build and Generate autograding.json
-        run: mkdir -p .github/classroom && ./gradlew generateAutogradingJson
-
-      - name: Check autograding.json
-        run: ls -la .github/classroom/
-        
-      - name: Autograding
-        uses: education/autograding@v1
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Heritage
+      id: heritage
+      uses: classroom-resources/autograding-command-grader@v1
+      with:
+        test-name: Heritage
+        setup-command: ''
+        command: gradle test
+        timeout: 10
+        max-score: 1
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        HERITAGE_RESULTS: "${{steps.heritage.outputs.result}}"
+      with:
+        runners: heritage
